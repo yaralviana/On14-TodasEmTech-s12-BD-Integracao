@@ -1,16 +1,18 @@
 # -On14-TodasEmTech-s12-BD-Integracao
 
- ### Apresentação e um recadinho da prof <br><br>
- - Bebam água meninas
- - Sinta-se a vontade para fazer perguntas, pode perguntar pelo chat também ou perguntar as monitoras
- - Qualquer pergunta é válida.
- - Pode deixar a camera aberta para a prof não se sentir sozinha
+ ### Apresentação
 
 <img src="https://pa1.narvii.com/6542/b759ad59ea88956c1416453d58c22b86cbbbffa9_hq.gif"
      alt="Chopper Feliz" width="500"
 />
 
+### recadinho da prof <br><br>
+ - Bebam água meninas
+ - Sinta-se a vontade para fazer perguntas, pode perguntar pelo chat também ou perguntar as monitoras
+ - Qualquer pergunta é válida.
+ - Pode deixar a camera aberta para a prof não se sentir sozinha
 
+ 
 <br>
 <br>
 <br>
@@ -20,7 +22,11 @@
 
 ## Introdução ao Banco de Dados
 
-Um banco de dados é uma ferramenta para salvar dados, surgiu  aproximadamente a partir da década de 70, e foi criado para armazenar e organizar informações. Um banco é muito importante para um back-end, pois é ele que permite que os dados sejam persistido e acessados de forma eficiente e segura.
+Banco de dados é a organização e a armazenagem de informações sobre determinada aplicação.
+
+Pensando em back-end, ele é fundamental para o funcionamento adquado de nossas aplicações, pois precisamos salvar dados dos nossos clientes.
+
+Existe 2 tipos de banco da dados, Relacionais e Não Relacionais
 
 ### Motivos utilizar um Banco de Dados
 
@@ -40,7 +46,7 @@ Um banco de dados é uma ferramenta para salvar dados, surgiu  aproximadamente a
 | ----------- | ----------- |
 Os bancos de dados SQL, também conhecidos como bancos de dados relacionais, foram projetados para armazenar dados que possuem um esquema estruturado, surgiu devido a necessidade de um sistema mais barato e eficiente para armazenar dados.|  Surgiu como alternativa aos bancos relacionais, o MongoDB uns do mais conhecido, foi lançado aproximadamente em 2009. 
 | Bancos de dados relacionais são  compostos por tabelas que possuem relacionamento entre si, essas tabelas possui colunas(columns) e linhas(rows), que são  a forma que os dados são  organizados | Banco de dados não relacionais são  compostos por dados não estruturados, no MongoDB  por exemplo, possuímos Collections que são coleção  de documentos e os  documentos são armazenados são os documentos em formato JSON, possuindo uma chave e valor. |
-| O cenário para o uso do SQL e quando necessitamos  de dados precisamente estruturados | Um cenario para uso do NOSQL quando precisamos que a aplicacao tenha um bom desepenho e escale horizontalmente |
+| O cenário para o uso do SQL e quando necessitamos  de dados precisamente estruturados com relação entre si | Um cenario ideal para uso do NOSQL quando uma BigData por exemplo, que precisamos que a aplicacao tenha um bom desepenho e escale horizontalmente |
 
 ![imagem](https://ichi.pro/assets/images/max/724/0*rlLOjmeLlGQyzETu.png)
 
@@ -52,40 +58,81 @@ Os bancos de dados SQL, também conhecidos como bancos de dados relacionais, for
 
 ## Introdução ao MongoDB
 <br>
-MongoDB é um software de banco de dados orientado a documentos livre, de código aberto e multiplataforma, escrito na linguagem C++. Classificado como um programa de banco de dados NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
+
+O MongoDB é um banco de dados direcionado a Documentos  e de código aberto, sendo  multiplataforma. Foi escrito na linguagem C++ e é classificado como um programa de banco de dados NoSQL, o MongoDB usa documentos semelhantes a JSON para o registro dos dados.
+
+```json
+ Pessoa
+ {
+     nome: String,
+     idade: Number,
+     profissao: Array
+     rg: Object
+ }
+```
 
 
-### Documentos
+### Databases
 
-A estrutura do documento é muito similar a um objeto javascript, possuindo chave-valor.
-<img src="./assets/document.jpg" alt="document" width="100%">
+A database é a camada superior que tem como finalidade separar as informações por collections.
+
+<img src="./assets/database.jpg" alt="database" width="100%">
+<br>
+<br>
 <br>
 
 ### Collections
 
+A Collection é aonde ficam armazenados os documentos, similar a um array. Fazendo um comparativo ao SQL, ela seria proximo a uma Tabela, no entanto, ela não possui as limitações da mesma.
 <br>
 
-A Collection basicamente é a coleção de documentos, em outras palavras, é bem similar a um array quando paramos para analisar, embora não seja um array.
+```json
+ [
+      {
+        nome: "Beatriz",
+        idade: 24,
+        profissao: ["Desenvolvedora Back-end", "Professora"]
+     },
+    {
+        nome: "",
+        idade: 0,
+        profissao: [],
+        formação: "",
+        altura: ""
+     }
+]
+
+```
+
+### Documentos
+
+A estrutura do documento é muito similar a um objeto javascript, possuindo chave-valor.
+```json
+ beatriz
+ {
+     nome: "Beatriz",
+     idade: 24,
+     profissao: ["Desenvolvedora Back-end", "Professora"]
+ }
+```
 <br>
-<img src="./assets/collection.jpg" alt="collection" width="100%">
+
+
 
 <br>
 
-### Databases
-A database é a base raiz das collections
-<img src="./assets/database.jpg" alt="database" width="100%">
 
 
 <br/>
 
-Quando pensamos no crud, essa seria relação entre o banco de dados e a nossa API
+Relação de metodos com o `CRUD`
 
 | OPERAÇÃO | MONGODB | DESCRIÇÃO
 | --- | --- | --- |
-| **C**REATE | insertOne() | cria um documento |
-| **R**EAD | find() | ler um documento |
-| **U**PDATE | updateOne() | atualiza um documento |
-| **D**ELETE | deleteOne() | deleta um documento |
+| **C**REATE | db.insertOne() | cria um documento |
+| **R**EAD | db.find() | ler um documento |
+| **U**PDATE | db.updateOne() | atualiza um documento |
+| **D**ELETE | db.deleteOne() | deleta um documento |
 
 <br>
 <br>
@@ -95,8 +142,13 @@ Quando pensamos no crud, essa seria relação entre o banco de dados e a nossa A
 <br>
 
 ## Mongo Atlas
-// aula do banco online
+Mongo Atlas é um banco de dados em Cloud, atualmente é o lider de banco de dados, devido sobretudo a sua facilidade de uso, desempenho e escalabilidade.
 
+    - Seu banco fica armazenado em Cluster que é basicamente a união de um ou mais computadores com o objetivo de compartilhar recursos e assim, obter uma boa perfomace.
+
+[Como criar um Cluster documentação](https://docs.atlas.mongodb.com/tutorial/create-new-cluster/)
+
+    mongo_altas.pdf
 
 <br>
 <br>
@@ -108,7 +160,9 @@ Quando pensamos no crud, essa seria relação entre o banco de dados e a nossa A
 
 ## Mongo COMPASS
 
-// deixar link de sugestao parao  studio 3t
+MongoDB Compass é uma interface gráfica poderosa para consultar, agregar e analisar seus dados MongoDB em um ambiente visual.
+
+O Compass é gratuito para uso e código-fonte disponível e pode ser executado no macOS, Windows e Linux.
 
 <br>
 <br>
@@ -117,8 +171,14 @@ Quando pensamos no crud, essa seria relação entre o banco de dados e a nossa A
 <br>
 <br>
 
-# Introdução ao  Moogose e ORM
- Um ORM é uma biblioteca de programação que facilita o uso de bancos de dados, nesse caso utilizaremos o mongoose que é uma ORM do mongoDB.
+# Introdução ao  Moogose
+
+
+Mongoose ORM/ODM é uma ferramenta de modelagem de dados para Mongo, ele permite facilitar a armazenagem e modelamento de dados, bem como facilita a busca de documentos e a segurança do banco.
+
+- `ORM` `Mapeamento objeto-relacional` é uma técnica de desenvolvimento utilizada para fazer uma relação dos objetos com os dados que eles representam. 
+- `ODM` Object Data Model , modela os dados baseado em Orientação a Objeto `OOP`
+
 
 
 <br>
@@ -346,7 +406,7 @@ ReprogramaMusic
 | ----------- | ----------- |
 | Express | Framework para construção de micro-serviços com Node |
 | Cors | Expoe nossa api a outros dominios |
-| Mongoose | Uma lib ORM que facilita a criação de modelos de dados para o MongoDB. |
+| Mongoose | Uma lib ORM/ODM que facilita a criação de modelos de dados para o MongoDB. |
 | dotenv-safe | Garante que todas as variáveis ​​de ambiente necessárias sejam definidas após a leitura |
 | nodemon | Recarrega nossa API, cada vez que fazemos uma alteração no código  |
 
@@ -369,6 +429,8 @@ ReprogramaMusic
 
 ### Videos de apoio
 
+[Resumo MongoDb Codigo Fonte TV](https://www.youtube.com/watch?v=4dTI1mVLX3I)
+
 <br>
 <br>
 <br>
@@ -377,6 +439,12 @@ ReprogramaMusic
 <br>
 
 ### Referências
+- https://www.gartner.com/en/information-technology/glossary/object-data-model
+- https://medium.com/tkssharma/node-js-with-mongoose-odm-9697c09665df
+- https://developer.mozilla.org/pt-BR/docs/Learn/Server-side/Express_Nodejs/mongoose
+- https://docs.mongodb.com/
+- https://docs.mongodb.com/manual/crud/
+- https://docs.atlas.mongodb.com/tutorial/create-new-cluster/
 
 
 <br>
