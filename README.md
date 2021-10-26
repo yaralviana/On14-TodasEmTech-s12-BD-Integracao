@@ -76,7 +76,7 @@ Os bancos de dados SQL, também conhecidos como bancos de dados relacionais, for
 O MongoDB é um banco de dados direcionado a Documentos  e de código aberto, sendo  multiplataforma. Foi escrito na linguagem C++ e é classificado como um programa de banco de dados NoSQL, o MongoDB usa documentos semelhantes a JSON para o registro dos dados.
 
 ```javascript
- Pessoa
+ // Document - Pessoa
  {
      nome: String,
      idade: Number,
@@ -100,7 +100,7 @@ A database é a camada superior que tem como finalidade separar as informações
 A Collection é aonde ficam armazenados os documentos, similar a um array. Fazendo um comparativo ao SQL, ela seria proximo a uma Tabela, no entanto, ela não possui as limitações da mesma.
 <br>
 
-```json
+```javascript
  [
       {
         nome: "Beatriz",
@@ -121,8 +121,8 @@ A Collection é aonde ficam armazenados os documentos, similar a um array. Fazen
 ### Documentos
 
 A estrutura do documento é muito similar a um objeto javascript, possuindo chave-valor.
-```json
- beatriz
+```javascript
+ // document
  {
      nome: "Beatriz",
      idade: 24,
@@ -133,8 +133,8 @@ A estrutura do documento é muito similar a um objeto javascript, possuindo chav
 <br>
 
 ### Comparativo de termos e conceitos
-![imagem](https://ichi.pro/assets/images/max/724/0*rlLOjmeLlGQyzETu.png)
 
+<img src="https://ichi.pro/assets/images/max/724/0*rlLOjmeLlGQyzETu.png">
 
 <br>
 <br/>
@@ -159,7 +159,7 @@ Seu banco fica armazenado em Cluster que é um espaço numa VM que o seu banco d
 
 [Como criar um Cluster documentação](https://docs.atlas.mongodb.com/tutorial/create-new-cluster/)
 
-    mongo_altas.pdf
+Passo-a-passo de como criar no MongoAtlas.pdf
 
 <br>
 <br>
@@ -243,7 +243,7 @@ Schema ou model é a estrutura do nosso Documento, ou seja, o nosso modelo de da
 
 ### Criando o Schema/Model
 
-```JSON
+```
 name {
     type: String, Number, Array...
     required: true, false
@@ -252,7 +252,7 @@ name {
 
 ```
 
-```JSON
+```JAVASCRIPT
 const Schema = new mongoose.Schema({
     artista: {
         type: String,
