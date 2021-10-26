@@ -1,24 +1,45 @@
-# -On14-TodasEmTech-s12-BD-Integracao
+# On14-TodasEmTech-s12-BD-Integracao
 
  ### Apresentação
 
+<br>
 <img src="https://pa1.narvii.com/6542/b759ad59ea88956c1416453d58c22b86cbbbffa9_hq.gif"
      alt="Chopper Feliz" width="500"
 />
+<br>
+<br>
+<br>
+<br>
+<br>
 
-### recadinho da prof <br><br>
+### Bio
+<br>
+Meu nome é Beatriz, atuo como pessoa desenvolvedora back-end na Creditas e curso ADS no Senac, sou ex-aluna da reprograma . Em 2019 tive que não só iniciar uma transicão de carreira, mas de genero também, então tive que aprender muita coisa até chorar,e durante esse processo eu aprendi muito me conheci melhor.  Gosto de passar meu tempo livre jogando ou vendo um pirata que estica, eu tive um contato muito cedo com a programação e amo por paixão o meu JS.  
+
+<br>
+<br>
+
+### recadinho da professora 
  - Bebam água meninas
  - Sinta-se a vontade para fazer perguntas, pode perguntar pelo chat também ou perguntar as monitoras
  - Qualquer pergunta é válida.
  - Pode deixar a camera aberta para a prof não se sentir sozinha
 
+<br>
+<br>
+<br>
  
+### Conteúdo da Aula
+ - Introdução ao Banco de Dados
+ - SQL vs NoSQL
+ - Introdução ao MongoDB
+ - Introdução ao Mongoose
+ - Projeto Prático
+
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
+
+
 
 ## Introdução ao Banco de Dados
 
@@ -26,9 +47,7 @@ Banco de dados é a organização e a armazenagem de informações sobre determi
 
 Pensando em back-end, ele é fundamental para o funcionamento adquado de nossas aplicações, pois precisamos salvar dados dos nossos clientes.
 
-Existe 2 tipos de banco da dados, Relacionais e Não Relacionais
-
-### Motivos utilizar um Banco de Dados
+### Motivos para utilizar um Banco de Dados
 
  - Salvar dados da aplicação
  - Deixa a aplicação escalavel
@@ -38,9 +57,7 @@ Existe 2 tipos de banco da dados, Relacionais e Não Relacionais
 
 <br>
 
-## Banco de Dados Relacional vs Não Relacional
-
-<br>
+### Banco de dados SQL vs NOSQL
 
 | SQL | NOSQL | 
 | ----------- | ----------- |
@@ -48,20 +65,17 @@ Os bancos de dados SQL, também conhecidos como bancos de dados relacionais, for
 | Bancos de dados relacionais são  compostos por tabelas que possuem relacionamento entre si, essas tabelas possui colunas(columns) e linhas(rows), que são  a forma que os dados são  organizados | Banco de dados não relacionais são  compostos por dados não estruturados, no MongoDB  por exemplo, possuímos Collections que são coleção  de documentos e os  documentos são armazenados são os documentos em formato JSON, possuindo uma chave e valor. |
 | O cenário para o uso do SQL e quando necessitamos  de dados precisamente estruturados com relação entre si | Um cenario ideal para uso do NOSQL quando uma BigData por exemplo, que precisamos que a aplicacao tenha um bom desepenho e escale horizontalmente |
 
-![imagem](https://ichi.pro/assets/images/max/724/0*rlLOjmeLlGQyzETu.png)
+
 
 <br>
 <br>
-<br>
-<br>
-<br>
+
 
 ## Introdução ao MongoDB
-<br>
 
 O MongoDB é um banco de dados direcionado a Documentos  e de código aberto, sendo  multiplataforma. Foi escrito na linguagem C++ e é classificado como um programa de banco de dados NoSQL, o MongoDB usa documentos semelhantes a JSON para o registro dos dados.
 
-```json
+```javascript
  Pessoa
  {
      nome: String,
@@ -116,13 +130,13 @@ A estrutura do documento é muito similar a um objeto javascript, possuindo chav
  }
 ```
 <br>
+<br>
 
+### Comparativo de termos e conceitos
+![imagem](https://ichi.pro/assets/images/max/724/0*rlLOjmeLlGQyzETu.png)
 
 
 <br>
-
-
-
 <br/>
 
 Relação de metodos com o `CRUD`
@@ -137,14 +151,11 @@ Relação de metodos com o `CRUD`
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
 
 ## Mongo Atlas
 Mongo Atlas é um banco de dados em Cloud, atualmente é o lider de banco de dados, devido sobretudo a sua facilidade de uso, desempenho e escalabilidade.
 
-    - Seu banco fica armazenado em Cluster que é basicamente a união de um ou mais computadores com o objetivo de compartilhar recursos e assim, obter uma boa perfomace.
+Seu banco fica armazenado em Cluster que é um espaço numa VM que o seu banco de dados fica hospedado.
 
 [Como criar um Cluster documentação](https://docs.atlas.mongodb.com/tutorial/create-new-cluster/)
 
@@ -173,7 +184,6 @@ O Compass é gratuito para uso e código-fonte disponível e pode ser executado 
 
 # Introdução ao  Moogose
 
-
 Mongoose ORM/ODM é uma ferramenta de modelagem de dados para Mongo, ele permite facilitar a armazenagem e modelamento de dados, bem como facilita a busca de documentos e a segurança do banco.
 
 - `ORM` `Mapeamento objeto-relacional` é uma técnica de desenvolvimento utilizada para fazer uma relação dos objetos com os dados que eles representam. 
@@ -188,13 +198,13 @@ Mongoose ORM/ODM é uma ferramenta de modelagem de dados para Mongo, ele permite
 
 uri é uma parte da URL, ou seja, um pedaço da url, na nossa aplicação ela vem de uma variavel de ambiente
 
-```
+```javascript
 const MONGO_URI = "mongodb://localhost:27017/reprogramaMusic"
 ```
 
 ### Criando a função de conexão
 
-```
+```javascript
 const connect = async () => {
     try {
         await mongoose.connect(MONGO_URI, {
@@ -215,17 +225,23 @@ const connect = async () => {
 
 
 
-```
+```javascript
 module.exports = { connect }
 ```
 
+### Conectando ao banco
 
-## Schema
+```javascript
+const db = require('dbconfig.js')
+db.connect()
+```
+
+## Schema/Model
 
 Schema ou model é a estrutura do nosso Documento, ou seja, o nosso modelo de dados.
 
 
-### Criando o Schema
+### Criando o Schema/Model
 
 ```JSON
 name {
@@ -259,26 +275,25 @@ const Schema = new mongoose.Schema({
 ```
 ### exportando nosso Schema ou seja nossa model e criando a collection
 
-```
-module.exports =  mongoose.model('music', Schema)
+```javascript
+module.exports =  mongoose.model('musica', Schema)
 ```	
 
-## Alguns metodos do mongoose
+## Métodos do CRUD com Moogose
+vamos conhecer o basico do mongoose
 
-Vamos conhecer o basico do mongoose
-
-###  obter toda a collection find()
+###  Obter toda a coleção
 Ao utilizar esse metodo retornamos todos as musicas da collection
 
-```	
-const music = await Music.find()
+```javascript
+const musica = await Musica.find()
 ```
 
-### Filtro com o mongoose
+### Busca com parametros
 Caso queira filtrar algum dado da collection, basta passar um objeto como parametro para o metodo find
 
-```	
-const music = await Music.find({
+```javascript
+const musica = await Musica.find({
     artista: req.query.artista,
     titulo: req.query.titulo,
     album: req.query.album,
@@ -289,39 +304,39 @@ const music = await Music.find({
 
 ###  obter somente uma musica(document) da collection por ID
 
-```
-const music = await Music.findById(req.params.id)	
+```javascript
+const musica = await Musica.findById(req.params.id)	
 ```
 
 ### salvar um documento na collection
 
-```
-const music =  Music.create({
+```JAVASCRIPT
+const musica =  Musica.create({
     artista: req.body.artista,
     titulo: req.body.titulo,
     album: req.body.album,
     ano: req.body.ano,
 })
 
-await music.save()
+await musica.save()
 
 ```
 
 
 ### deletar um documento da collection
 
-```	
-const music = await music.delete()
+```javascript
+const musica = await musica.delete()
 ```	
 
 Resumo dos métodos vistos até aqui.
 
 | OPERAÇÃO | MONGODB | MONGOOSE
 | --- | --- | --- |
-| **C**REATE | insertOne() | save()  |
-| **R**EAD | find() | find() |
-| **U**PDATE | updateOne() | save() |
-| **D**ELETE | deleteOne() | delete() |
+| **C**REATE | db.insertOne() | musica.save()  |
+| **R**EAD | db.find() | musica.find() |
+| **U**PDATE | db.updateOne() | musica.save() |
+| **D**ELETE | db.deleteOne() | musica.delete() |
 
 <br>
 <br>
@@ -332,7 +347,7 @@ Resumo dos métodos vistos até aqui.
 
 
 
-### Dotenv
+### Dotenv 
 
 Variaveis de ambiente permite que a desenvolvedora tenha maior controle e segurança sobre a aplicação, permite por exemplo salvar uma senha do banco de dados.  Para essa nosssa API,  utilizaremos o dontenv-safe, que adiciona uma camada adicional de segurança para o desenvolvedor.
 
@@ -341,13 +356,12 @@ Para instalar o dotenv-safe, basta utilizar o comando:
 
 ```
 npm install dotenv-safe
-
 ```
 
 Para habilitar as variaves de ambiente.
 
 
-```
+```javascript
 require('dotenv-safe').config()
 
 
@@ -360,7 +374,7 @@ const PORT = process.env.PORT
 
 No arquivo .env salvamos as variaveis de ambiente.
 
-```	
+```
 PORT=3000
 MONGODB_URI=mongodb://localhost:27017/reprogramaMusic
 ```
@@ -411,7 +425,7 @@ ReprogramaMusic
 | nodemon | Recarrega nossa API, cada vez que fazemos uma alteração no código  |
 
 
-### ROTAS
+### ROTAS DA NOSSA API
  - [GET] /musicas 
  - [POST] /musicas/create
  - [PUT] /musicas/:id
@@ -429,11 +443,11 @@ ReprogramaMusic
 
 ### Videos de apoio
 
-[Resumo MongoDb Codigo Fonte TV](https://www.youtube.com/watch?v=4dTI1mVLX3I)
+- [Resumo MongoDb Codigo Fonte TV](https://www.youtube.com/watch?v=4dTI1mVLX3I)
+- [NODEjs Express Mongo](https://www.youtube.com/watch?v=K5QaTfE5ylk)
+- [O que é banco de dados](https://www.youtube.com/watch?v=Ofktsne-utM)
 
-<br>
-<br>
-<br>
+
 <br>
 <br>
 <br>
@@ -445,12 +459,10 @@ ReprogramaMusic
 - https://docs.mongodb.com/
 - https://docs.mongodb.com/manual/crud/
 - https://docs.atlas.mongodb.com/tutorial/create-new-cluster/
+- https://studio3t.com/academy/topic/mongodb-vs-sql-concepts/
+- https://dzone.com/articles/sql-vs-nosql
+- https://mongoosejs.com/docs/index.html
 
-
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -472,7 +484,7 @@ O entregável obrigatório consiste em um getAll, getById e um Post. Caso queira
 
 ### Sugestão de Schema
 
-```
+```javascript
     {
         artista : string,
         likes: number,
@@ -485,9 +497,14 @@ O entregável obrigatório consiste em um getAll, getById e um Post. Caso queira
 
 # Obrigada!
 
-<img src="https://media.entertainmentearth.com/assets/images/5423d93ac5c6424aa42924b48b6eababxl.jpg" width="400" alt="luffy">
+<img src="https://i.pinimg.com/originals/ed/67/0a/ed670a8b6b14dce2f0f580a3409aa46d.gif" width="400" alt="luffy">
 
-Qualquer dúvida pode entrar em contato <br>
-[Instagram](https://www.instagram.com/isjanebea/) <br>
-[Linkedin](https://www.linkedin.com/in/beatriz-ramerindo/)<br>
-[Telegran](https://t.me/littlejanne)
+Qualquer dúvida pode entrar em contato. 
+<br>
+<br>
+
+### Me encontre nas Redes
+
+[Instagram - @isjanebia](https://www.instagram.com/isjanebea/) <br>
+[Linkedin - Beatriz Ramerindo](https://www.linkedin.com/in/beatriz-ramerindo/)<br>
+[Telegran - @littlejanne](https://t.me/littlejanne)
