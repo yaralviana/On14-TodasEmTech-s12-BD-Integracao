@@ -90,7 +90,6 @@ O MongoDB é um banco de dados direcionado a Documentos  e de código aberto, se
 
 A database é a camada superior que tem como finalidade separar as informações por collections.
 
-<img src="./assets/database.jpg" alt="database" width="100%">
 <br>
 <br>
 <br>
