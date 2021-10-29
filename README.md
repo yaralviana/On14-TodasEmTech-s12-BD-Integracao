@@ -158,12 +158,8 @@ Seu banco fica armazenado em Cluster que é um espaço numa VM que o seu banco d
 
 [Como criar um Cluster documentação](https://docs.atlas.mongodb.com/tutorial/create-new-cluster/)
 
-Passo-a-passo de como criar no MongoAtlas.pdf
+ ### Contectando o banco com Mongo Atlas
 
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -172,11 +168,10 @@ Passo-a-passo de como criar no MongoAtlas.pdf
 
 MongoDB Compass é uma interface gráfica poderosa para consultar, agregar e analisar seus dados MongoDB em um ambiente visual.
 
-O Compass é gratuito para uso e código-fonte disponível e pode ser executado no macOS, Windows e Linux.
+É possivel analisar as base de dados já existente bem como inserir ou exportar dados, em formato JSON ou CSV
 
-<br>
-<br>
-<br>
+### Conectando o banco ao MongoCompass
+
 <br>
 <br>
 <br>
@@ -185,17 +180,19 @@ O Compass é gratuito para uso e código-fonte disponível e pode ser executado 
 
 Mongoose ORM/ODM é uma ferramenta de modelagem de dados para Mongo, ele permite facilitar a armazenagem e modelamento de dados, bem como facilita a busca de documentos e a segurança do banco.
 
-- `ORM` `Mapeamento objeto-relacional` é uma técnica de desenvolvimento utilizada para fazer uma relação dos objetos com os dados que eles representam. 
+*Termos/Conceitos*
+- `ORM` Mapeamento objeto-relacional é uma técnica de desenvolvimento utilizada para fazer uma `relação dos objetos` com os dados que eles representam. 
 - `ODM` Object Data Model , modela os dados baseado em Orientação a Objeto `OOP`
 
-
-
+<br>
 <br>
 <br>
 
 ### URI
 
-uri é uma parte da URL, ou seja, um pedaço da url, na nossa aplicação ela vem de uma variavel de ambiente
+`uri` é uma parte da URL, ela pode ser um trecho específico relacionado a configuração de um banco de dados por exemplo.
+
+ Abaixo um exemplo em javascript
 
 ```javascript
 const MONGO_URI = "mongodb://localhost:27017/reprogramaMusic"
@@ -234,22 +231,30 @@ module.exports = { connect }
 const db = require('dbconfig.js')
 db.connect()
 ```
+<br>
+<br>
 
 ## Schema/Model
 
-Schema ou model é a estrutura do nosso Documento, ou seja, o nosso modelo de dados.
+Schema ou model é o nosso modelo de dados, assim podemos mapear o nossa model, exemplo: uma Pessoa, ela possui um nome, sobrenome, uma data de nascimento...
 
 
 ### Criando o Schema/Model
+Quando criamos a nossa Schema, precisamos definir a tipagem da propriedade bem como as regras, existe cenarios que o campo é requirido, que o campo é unico e sucessivamente.
 
-```
-name {
-    type: String, Number, Array...
-    required: true, false
-    default: '', // valor padrao
-}
+| Tipo | Definição | Exemplo de uso
+| --- | --- | --- |
+| **String** | texto | para nomes, email, senhas... |
+| **Number** | numero | para idades, likes, contadores... |
+| **Date** | data | data de criação, data de modificação... |
+| **Array** | array que seria equivalente a lista | lista de objetos, como por exemplo: Filmes,  Profissão, Comentários, etc |
 
-```
+... e outros tipos do Javascript
+
+<br>
+<br>
+
+Exemplo de uso em javascript
 
 ```JAVASCRIPT
 const Schema = new mongoose.Schema({
@@ -340,11 +345,6 @@ Resumo dos métodos vistos até aqui.
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-
-
 
 ### Dotenv 
 
@@ -383,8 +383,6 @@ No arquivo `.env.example` salvamos somente a variavel vazia para que o proximo d
 MONGODB_URI
 PORT
 ```
-<br>
-<br>
 <br>
 <br>
 <br>
