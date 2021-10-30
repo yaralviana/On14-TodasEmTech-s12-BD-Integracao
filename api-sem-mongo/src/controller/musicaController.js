@@ -1,5 +1,7 @@
 const musicas = require('../models/musicaModel.json')
 let id = 2
+
+
 const getAll = (req, res) => { // R
     res.status(200).json(musicas)
 }
